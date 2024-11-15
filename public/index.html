@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intertechub Backend Project Stage 1</title>
+    <link rel="stylesheet" href="./styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">Simple Express Server</div>
+            <h1>Intertechub Backend Project Stage 1</h1>
+        </header>
+
+        <main>
+            <h2>Hi, I am Teddy, Nice to meet you! 👋</h2>
+            <p>Want to know more about me? Click one of these buttons!</p>
+
+            <div class="buttons">
+                <button onclick="fetchData('name')" class="btn">
+                    <i class="fas fa-user"></i>
+                    Get My Name
+                </button>
+                <button onclick="fetchData('hobby')" class="btn">
+                    <i class="fas fa-gamepad"></i>
+                    Get My Hobby
+                </button>
+                <button onclick="fetchData('dream')" class="btn">
+                    <i class="fas fa-star"></i>
+                    Get My Dream
+                </button>
+            </div>
+
+            <div id="result" class="result-box"></div>
+        </main>
+    </div>
+    
+    <script>
+        async function fetchData(endpoint) {
+            const resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = 'Loading...';
+            
+            try {
+                const response = await fetch(`/${endpoint}`);
+                const data = await (endpoint === 'hobby' ? response.json() : response.text());
+                
+                if (endpoint === 'hobby') {
+                    resultDiv.innerHTML = `
+                        <h3>My Hobby</h3>
+                        <p><strong>${data.hobby}</strong></p>
+                        <p>${data.details}</p>
+                    `;
+                } else {
+                    resultDiv.innerHTML = `<p>${data}</p>`;
+                }
+            } catch (error) {
+                resultDiv.innerHTML = 'Error fetching data. Please try again.';
+            }
+        }
+    </script>
+</body>
+</html>

@@ -6,6 +6,16 @@ const app = express();
 dontenv.config();
 const port = process.env.PORT || 3000;
 
+// Serve static files from public directory
+app.use(express.static('public'));
+
+// Middleware to enable CORS
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+  next();
+});
+
 //This is used to get the routes
 app.use('/',require('./routes/routes'))
 
