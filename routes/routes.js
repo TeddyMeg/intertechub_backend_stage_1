@@ -1,22 +1,20 @@
 const express = require('express')
 const router = express.Router()
+const {getName,getHobby,getDream} = require('../controllers/controllers')
 
-// Route: /name
-app.get('/name', (req, res) => {
-    res.status(200).send('Teddy Tassew');
-  });
+//@desc Get name
+//@route: GET /name
+//@access Public
+router.get('/name', getName);
   
-  // Route: /hobby
-  app.get('/hobby', (req, res) => {
-    res.status(200).json({
-      hobby: 'Programming',
-      details: 'Creating software and solving problems through code'
-    });
-  });
+//@desc Get hobby
+//@route: GET /hobby
+//@access Public
+router.get('/hobby', getHobby);
   
-  // Route: /dream
-  app.get('/dream', (req, res) => {
-    res.status(200).send('To become a world-class software engineer and make a positive impact through technology');
-  });
+//@desc Get dream
+//@route: GET /dream
+//@access Public
+router.get('/dream', getDream);
 
 module.exports = router
