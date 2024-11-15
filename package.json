@@ -1,0 +1,30 @@
+{
+  "name": "intertechub_backend_stage_1",
+  "version": "1.0.0",
+  "description": "A simple Express server with three routes",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TeddyMeg/intertechub_backend_stage_1.git"
+  },
+  "keywords": [
+    "nodejs",
+    "express",
+    "html",
+    "css",
+    "javascript"
+  ],
+  "author": "Teddy Tassew",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/TeddyMeg/intertechub_backend_stage_1/issues"
+  },
+  "homepage": "https://github.com/TeddyMeg/intertechub_backend_stage_1#readme",
+  "dependencies": {
+    "express": "^4.21.1"
+  }
+}
